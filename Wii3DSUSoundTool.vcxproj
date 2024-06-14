@@ -79,19 +79,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="STRGSection.cpp" />
-    <!-- Add other .cpp files here -->
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sar.h" />
-    <ClInclude Include="BNK.h" />
-    <ClInclude Include="GRP.h" />
-    <ClInclude Include="INFOSection.h" />
-    <ClInclude Include="SEQ.h" />
-    <ClInclude Include="STRGSection.h" />
-    <ClInclude Include="WAR.h" />
-    <ClInclude Include="WAV.h" />
-    <!-- Add other .h files here -->
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
