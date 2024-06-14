@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -68,6 +68,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -78,9 +79,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="STRGSection.cpp" />
+    <!-- Add other .cpp files here -->
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sar.h" />
+    <ClInclude Include="BNK.h" />
+    <ClInclude Include="GRP.h" />
+    <ClInclude Include="INFOSection.h" />
+    <ClInclude Include="SEQ.h" />
+    <ClInclude Include="STRGSection.h" />
+    <ClInclude Include="WAR.h" />
+    <ClInclude Include="WAV.h" />
+    <!-- Add other .h files here -->
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
