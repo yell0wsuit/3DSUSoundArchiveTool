@@ -25,63 +25,43 @@ typedef struct {
 	s16 realRelease;
 
 
-	double getAttack() {
-		std::cout << "Attack: " << (int)attack << std::endl;
-		return timeToTimecents(attackTable[attack] / 1000);
-	}
+	int getAttack() {
+        std::cout << "Attack: " << (int)attack << std::endl;
+        return (int)attack;
+    }
 
-	double getHold() {
-		std::cout << "Hold: " << (int)hold << std::endl;
-		return timeToTimecents(holdTable[hold] / 1000);
-	}
+    int getHold() {
+        std::cout << "Hold: " << (int)hold << std::endl;
+        return (int)hold;
+    }
 
-	double getVolume() {
-		std::cout << "Volume: " << (int)volume << std::endl;
-		return 200 * abs(LogB(pow(((double)volume / 127.0000), 2), 10));
-	}
+    int getVolume() {
+        std::cout << "Volume: " << (int)volume << std::endl;
+        return (int)volume;
+    }
 
-	double getSustain() {
-		if (sustain == 0)
-			return 900;
-		else
-			std::cout << "Sustain: " << (int)sustain << std::endl;
-			return 200 * abs(LogB(pow(((double)sustain / 127.0000), 2), 10));
-	}
+    int getSustain() {
+        std::cout << "Sustain: " << (int)sustain << std::endl;
+        return (int)sustain;
+    }
 
-	double getDecay() {
-		sustainVol = 20 * LogB(pow(((double)sustain / 127.0000), 2), 10);
-		//		return (sustainVol / decayTable[decay] / 1000 * 1.895183915);
-		if (decay == 127)
-			return -12000;
-		else {
-			if (sustain == 0)
-				return timeToTimecents(-90.25 / decayTable[decay] / 1000);
-			else
-				std::cout << "Sustain (for Decay): " << (int)sustain << std::endl;
-				return timeToTimecents(sustainVol / decayTable[decay] / 1000);
-			//		return (sustainVol / decayTable[decay] / 1000 * 1.989943117);
-		}
-	}
+    int getDecay() {
+        std::cout << "Decay: " << (int)decay << std::endl;
+        return (int)decay;
+    }
 
-	double getRelease() {
-		sustainVol = 20 * LogB(pow(((double)sustain / 127.0000), 2), 10);
-		if (release == 127)
-			return -12000;
-		else {
-			if (sustain == 0)
-				return timeToTimecents(-90.25 / decayTable[release] / 1000);
-			else
-				std::cout << "Sustain (for Release): " << (int)sustain << " Release: " << (int)release << std::endl;
-				return timeToTimecents((-90.25 - sustainVol) / decayTable[release] / 1000);
-		}
-	}
+    int getRelease() {
+        std::cout << "Release: " << (int)release << std::endl;
+        return (int)release;
+    }
 
 	double getPan() {
 		realPan = (pan - 64) * 7.936507937;
-		if (realPan < 0)
+		/*if (realPan < 0)
 			return realPan + 65536;
 		else
-			return realPan;
+			return realPan;*/
+		return (int)pan;
 	}
 } noteRegion;
 
