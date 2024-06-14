@@ -1,3 +1,7 @@
+#include <iostream>
+#include <cmath>
+#include <cstdio>
+
 typedef struct {
 	bool exists;
 	u16 type; // 0x6000 - single wav, 0x6001 - multiple wav
@@ -22,14 +26,17 @@ typedef struct {
 
 
 	double getAttack() {
+		std::cout << "Attack: " << (int)attack << std::endl;
 		return timeToTimecents(attackTable[attack] / 1000);
 	}
 
 	double getHold() {
+		std::cout << "Hold: " << (int)hold << std::endl;
 		return timeToTimecents(holdTable[hold] / 1000);
 	}
 
 	double getVolume() {
+		std::cout << "Volume: " << (int)volume << std::endl;
 		return 200 * abs(LogB(pow(((double)volume / 127.0000), 2), 10));
 	}
 
@@ -37,6 +44,7 @@ typedef struct {
 		if (sustain == 0)
 			return 900;
 		else
+			std::cout << "Sustain: " << (int)sustain << std::endl;
 			return 200 * abs(LogB(pow(((double)sustain / 127.0000), 2), 10));
 	}
 
@@ -49,6 +57,7 @@ typedef struct {
 			if (sustain == 0)
 				return timeToTimecents(-90.25 / decayTable[decay] / 1000);
 			else
+				std::cout << "Sustain (for Decay): " << (int)sustain << std::endl;
 				return timeToTimecents(sustainVol / decayTable[decay] / 1000);
 			//		return (sustainVol / decayTable[decay] / 1000 * 1.989943117);
 		}
@@ -62,6 +71,7 @@ typedef struct {
 			if (sustain == 0)
 				return timeToTimecents(-90.25 / decayTable[release] / 1000);
 			else
+				std::cout << "Sustain (for Release): " << (int)sustain << " Release: " << (int)release << std::endl;
 				return timeToTimecents((-90.25 - sustainVol) / decayTable[release] / 1000);
 		}
 	}
